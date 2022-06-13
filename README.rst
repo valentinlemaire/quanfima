@@ -39,7 +39,7 @@ This is a fork of the original `Quanfima package <https://github.com/rshkarin/qu
 Installation
 ------------
 
-Because of the *peculiar* versionning of the different packages, I *strongly* recommend to use a virtual environment and install the package:
+Because of the *peculiar* versionning of the different packages, I *strongly* recommend to use a virtual environment and install the package::
 
     $ git clone https://github.com/valentinlemaire/quanfima.git
     $ cd quanfima
