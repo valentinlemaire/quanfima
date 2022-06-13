@@ -31,7 +31,7 @@ More examples of usage you can find in the documentation.
 
 
 
-*IMPORTANT NOTICE*
+*Important notice*
 ------------------
 
 This is a fork of the original `Quanfima package <https://github.com/rshkarin/quanfima.git>`_ that has been modified to work with more updated packages. However, because of how complicated vigra is to install, I removed the dependency on vigra and hence, the functions that used that package are no longer available. Some other functionalities might have been affected by the updated packages and the removal of vigra. 
