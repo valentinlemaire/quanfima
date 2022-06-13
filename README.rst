@@ -51,7 +51,7 @@ Example
 Open a grayscale image, perform segmentation, estimate porosity, analyze fiber
 orientation and diameters, and plot the results.
 
-.. code-block:: python    
+.. code-block:: python
     import numpy as np
     from skimage import io, filters
     from quanfima import morphology as mrph
