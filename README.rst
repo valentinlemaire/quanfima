@@ -47,9 +47,6 @@ Because of the *peculiar* versionning of the different packages, I *strongly* re
     $ source venv/bin/activate
     $ python setup.py install
 
-Example 
--------
-
 Usage
 -----
 Open a grayscale image, perform segmentation, estimate porosity, analyze fiber
