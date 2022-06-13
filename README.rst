@@ -52,6 +52,8 @@ Open a grayscale image, perform segmentation, estimate porosity, analyze fiber
 orientation and diameters, and plot the results.
 
 .. code-block:: python
+    :caption: Example use of quanfima
+    
     import numpy as np
     from skimage import io, filters
     from quanfima import morphology as mrph
@@ -79,7 +81,6 @@ orientation and diameters, and plot the results.
                             name='2d_polymer')
     vis.plot_diameter_map(dmap, cskel, figsize=(10,10), cmap='gist_rainbow',
                         name='2d_polymer')
-.. code-block:: python
 
 Documentation 
 -------------
