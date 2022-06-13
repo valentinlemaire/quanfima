@@ -39,47 +39,51 @@ This is a fork of the original `Quanfima package <https://github.com/rshkarin/qu
 Installation
 ------------
 
-To install this version of the package, follow the following instructions::
+Because of the *peculiar* versionning of the different packages, I *strongly* recommend to use a virtual environment and install the package:
 
     $ git clone https://github.com/valentinlemaire/quanfima.git
     $ cd quanfima
+    $ virtualenv venv
+    $ source venv/bin/activate
     $ python setup.py install
 
 Example 
 -------
 
+Usage
+-----
 Open a grayscale image, perform segmentation, estimate porosity, analyze fiber
 orientation and diameters, and plot the results.
 
 .. code-block:: python
-    import numpy as np
-    from skimage import io, filters
-    from quanfima import morphology as mrph
-    from quanfima import visualization as vis
-    from quanfima import utils
 
-    img = io.imread('./data/polymer_slice.tif')
+  import numpy as np
+  from skimage import io, filters
+  from quanfima import morphology as mrph
+  from quanfima import visualization as vis
+  from quanfima import utils
 
-    th_val = filters.threshold_otsu(img)
-    img_seg = (img > th_val).astype(np.uint8)
+  img = io.imread('../data/polymer_slice.tif')
 
-    # estimate porosity
-    pr = mrph.calc_porosity(img_seg)
-    for k,v in pr.items():
-    print('Porosity ({}): {}'.format(k, v))
+  th_val = filters.threshold_otsu(img)
+  img_seg = (img > th_val).astype(np.uint8)
 
-    # prepare data and analyze fibers
-    data, skeleton, skeleton_thick = utils.prepare_data(img_seg)
-    cskel, fskel, omap, dmap, ovals, dvals = \
-                        mrph.estimate_fiber_properties(data, skeleton)
+  # estimate porosity
+  pr = mrph.calc_porosity(img_seg)
+  for k,v in pr.items():
+    print('Porosity ({}): {}').format(k, v)
 
-    # plot results
-    vis.plot_orientation_map(omap, fskel, min_label=u'0°', max_label=u'180°',
-                            figsize=(10,10),
-                            name='2d_polymer')
-    vis.plot_diameter_map(dmap, cskel, figsize=(10,10), cmap='gist_rainbow',
+  # prepare data and analyze fibers
+  data, skeleton, skeleton_thick = utils.prepare_data(img_seg)
+  cskel, fskel, omap, dmap, ovals, dvals = \
+                      mrph.estimate_fiber_properties(data, skeleton)
+
+  # plot results
+  vis.plot_orientation_map(omap, fskel, min_label=u'0°', max_label=u'180°',
+                           figsize=(10,10),
+                           name='2d_polymer')
+  vis.plot_diameter_map(dmap, cskel, figsize=(10,10), cmap='gist_rainbow',
                         name='2d_polymer')
-
 
 Documentation 
 -------------
